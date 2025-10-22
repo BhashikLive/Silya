@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silya.in - Kids Marathi Style Clothing | Traditional Shirts & Pants</title>
+    <meta name="description" content="Premium quality kids Marathi style shirts and pants. Traditional designs with modern comfort for your little ones.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="animated-bg">
+        <div class="floating-particles"></div>
+        <div class="morphing-blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="aurora-background"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-left">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en" id="lang-en">EN</button>
+                    <button class="lang-btn" data-lang="mr" id="lang-mr">मर</button>
+                </div>
+                <div class="logo">
+                    <a href="index.html" class="logo-link" aria-label="Go to homepage">
+                        <h1 data-en="Silya.in" data-mr="सिल्या.इन">Silya.in</h1>
+                        <p data-en="Kids' Marathi Fashion" data-mr="मुलांसाठी मराठी फॅशन">Kids' Marathi Fashion</p>
+                    </a>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home" data-en="Home" data-mr="मुख्यपृष्ठ">Home</a></li>
+                    <li><a href="#products" data-en="Our Kids Dress Set" data-mr="मुलांसाठी आमचा पोशाख सेट">Our Kids Dress Set</a></li>
+                    <li><a href="about.html" data-en="About" data-mr="आमच्याबद्दल">About</a></li>
+                    <li><a href="contact.html" data-en="Contact" data-mr="संपर्क">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="cart-btn"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></button>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <!-- Left Side Image -->
+            <div class="hero-side-image left-image">
+                <img src="images/solo.JPG" alt="Traditional Marathi Dress Set" class="side-img" loading="eager">
+            </div>
+            
+            <!-- Center Text Content -->
+            <div class="hero-text fade-in-up">
+                <h2 data-en="Premium Traditional Marathi Dress Set for Kids" data-mr="मुलांसाठी
+                 प्रीमियम पारंपरिक मराठी पोशाख सेट">Premium Traditional Marathi Dress Set for Kids</h2>
+                <p data-en="A complete authentic outfit for kids featuring traditional Marathi kurta and pants. Handcrafted with premium cotton for comfort and style." data-mr="मुलांसाठी पारंपरिक मराठी कुर्ता आणि पॅंटचा संपूर्ण प्रामाणिक पोशाख, आराम आणि शैलीसाठी प्रीमियम कॉटनमध्ये !!!">A complete authentic outfit for kids featuring traditional Marathi kurta and pants. Handcrafted with premium cotton for comfort and style.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary" data-en="Shop Now" data-mr="आता खरेदी करा">Shop Now</a>
+                    <a href="about.html" class="btn btn-secondary" data-en="Learn More" data-mr="अधिक जाणून घ्या">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Right Side Image -->
+            <div class="hero-side-image right-image">
+                <img src="images/solo1.JPG" alt="Traditional Marathi Style" class="side-img" loading="eager">
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-en="Our Premium Dress Set for Kids" data-mr="मुलांसाठी आमचा प्रीमियम पोशाख सेट">Our Premium Dress Set for Kids</h2>
+                <p data-en="Authentic Marathi outfit for kids - complete shirt and pant set crafted with love and attention to detail" data-mr="मुलांसाठी मराठी पोशाख - प्रेम आणि तपशीलाकडे लक्ष देऊन तयार केलेला संपूर्ण शर्ट आणि पँट सेट">Authentic Marathi outfit for kids - complete shirt and pant set crafted with love and attention to detail</p>
+            </div>
+            
+            <!-- Single Product Showcase -->
+            <div class="single-product-showcase">
+                <!-- Product Images Gallery -->
+                <div class="product-gallery fade-in-left">
+                    <div class="main-product-image float-element">
+                        <img src="images/solo.JPG" alt="Traditional Marathi Dress Set for Kids" loading="eager" id="mainProductImage">
+                        <div class="product-badge featured" data-en="Featured" data-mr="खास">Featured</div>
+                    </div>
+                    <div class="product-thumbnails">
+                        <img src="images/solo.JPG" alt="Traditional Dress Set - Style 1" class="thumbnail active" onclick="changeMainImage('images/solo.JPG')">
+                        <img src="images/solo1.JPG" alt="Traditional Dress Set - Style 2" class="thumbnail" onclick="changeMainImage('images/solo1.JPG')">
+                    </div>
+                </div>
+                
+                <!-- Product Details -->
+                <div class="product-details fade-in-right">
+                    <h3 data-en="Premium Traditional Marathi Dress Set for Kids" data-mr="प्रीमियम पारंपरिक मराठी पोशाख सेट">Premium Traditional Marathi Dress Set for Kids</h3>
+                    
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count" data-en="(48 reviews)" data-mr="(४८ समीक्षा)">(48 reviews)</span>
+                    </div>
+                    
+                    <div class="product-price">
+                        <span class="sale-price">₹999</span>
+                        <span class="original-price">₹1200</span>
+                        <span class="discount" data-en="Save ₹201" data-mr="₹201 बचत">Save ₹201</span>
+                    </div>
+                    
+                    <div class="product-description">
+                        <h4 data-en="Complete Traditional Set Includes:" data-mr="संपूर्ण पारंपरिक सेटमध्ये समाविष्ट:">Complete Traditional Set Includes:</h4>
+                        <ul>
+                            <li data-en="Premium Marathi style kurta/shirt" data-mr="प्रीमियम मराठी शैलीचा कुर्ता/शर्ट">Premium Marathi style kurta/shirt</li>
+                            <li data-en="Matching traditional pants" data-mr="जुळणारी पारंपरिक पॅंट">Matching traditional pants</li>
+                            <li data-en="100% pure cotton fabric" data-mr="१००% शुद्ध कॉटन फॅब्रिक">100% pure cotton fabric</li>
+                            <li data-en="Comfortable all-day wear for kids" data-mr="मुलांसाठी दिवसभर आरामदायक">Comfortable all-day wear for kids</li>
+                            <li data-en="Perfect for festivals & celebrations" data-mr="सण आणि उत्सवांसाठी योग्य">Perfect for festivals & celebrations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="size-selection">
+                        <h4 data-en="Select Size:" data-mr="साइज निवडा:">Select Size:</h4>
+                        <div class="size-options">
+                            <button class="size-btn" data-size="S">S (2-3 yrs)</button>
+                            <button class="size-btn active" data-size="M4">M (4-5 yrs)</button>
+                            <button class="size-btn" data-size="M5">L (5-6 yrs)</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn btn-primary add-to-cart-main" data-en="Add to Cart" data-mr="कार्टमध्ये जोडा">Add to Cart</button>
+                        <button class="btn btn-secondary buy-now" data-en="Buy Now" data-mr="आता खरेदी करा">Buy Now</button>
+                    </div>
+                    
+                    <div class="product-features">
+                        <div class="feature">
+                            <span class="icon">🚚</span>
+                            <span data-en="Free Delivery" data-mr="मोफत डिलिव्हरी">Free Delivery</span>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">↩️</span>
+                            <span data-en="Easy Returns" data-mr="सोपी रिटर्न पद्धत">Easy Returns</span>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">✨</span>
+                            <span data-en="Premium Quality" data-mr="प्रीमियम गुणवत्ता">Premium Quality</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fas fa-tshirt"></i>
+                    <h3 data-en="Premium Quality" data-mr="प्रीमियम गुणवत्ता">Premium Quality</h3>
+                    <p data-en="High-quality fabrics that are comfortable and durable for kids." data-mr="उच्च-गुणवत्तेचे फॅब्रिक जे मुलांसाठी आरामदायक आणि टिकाऊ आहे.">High-quality fabrics that are comfortable and durable for kids.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-palette"></i>
+                    <h3 data-en="Traditional Designs" data-mr="पारंपरिक डिझाइन">Traditional Designs</h3>
+                    <p data-en="Authentic Marathi patterns and colors that celebrate our rich culture." data-mr="मराठी अस्सल नमुना आणि रंग जो आपल्या समृद्ध संस्कृतीचा उत्सव साजरा करतात.">Authentic Marathi patterns and colors that celebrate our rich culture.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3 data-en="Fast Delivery" data-mr="तत्पर डिलिव्हरी">Fast Delivery</h3>
+                    <p data-en="Quick and safe delivery to your doorstep across Maharashtra." data-mr="महाराष्ट्रभर तुमच्या दारात वेगवान आणि सुरक्षित डिलिव्हरी.">Quick and safe delivery to your doorstep across Maharashtra.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heart"></i>
+                    <h3 data-en="Made with Love" data-mr="प्रेमाने तयार केलेले">Made with Love</h3>
+                    <p data-en="Each piece is crafted with care and attention to detail." data-mr="प्रत्येक वस्तू काळजीपूर्वक आणि तपशीलवार लक्ष देऊन तयार केली आहे.">Each piece is crafted with care and attention to detail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-en="Silya.in" data-mr="सिल्या.इन">Silya.in</h3>
+                    <p data-en="Premium kids' Marathi style clothing" data-mr="मुलांचे मराठी शैलीचे प्रीमियम कपडे">Premium kids' Marathi style clothing</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-envelope"></i> info@silya.in</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-en="© 2024 Silya.in" data-mr="© २०२४ सिल्या.इन">© 2024 Silya.in</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
