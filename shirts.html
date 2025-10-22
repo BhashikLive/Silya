@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marathi Style Shirts for Kids | Silya.in</title>
+    <meta name="description" content="Browse our collection of traditional Marathi style shirts and kurtas for kids. High-quality, comfortable, and culturally authentic designs.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .product-page {
+            padding: 120px 0 80px;
+            background: var(--light-gray);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--royal-blue);
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .product-filters {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+        
+        .filter-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .filter-group label {
+            font-weight: 500;
+            color: var(--royal-blue);
+        }
+        
+        .filter-group select {
+            padding: 8px 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: 25px;
+            outline: none;
+            font-family: inherit;
+        }
+        
+        .filter-group select:focus {
+            border-color: var(--primary-orange);
+        }
+        
+        .filter-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-tag {
+            padding: 8px 20px;
+            background: var(--light-gray);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-tag.active,
+        .filter-tag:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+        }
+        
+        .products-count {
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-badges {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .product-badge {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+        
+        .badge-new { background: var(--forest-green); }
+        .badge-sale { background: var(--deep-red); }
+        .badge-bestseller { background: var(--golden-yellow); color: var(--royal-blue); }
+        
+        .quick-actions {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover .quick-actions {
+            opacity: 1;
+        }
+        
+        .quick-action {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--white);
+            color: var(--royal-blue);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quick-action:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-category {
+            color: var(--primary-orange);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .product-name {
+            font-size: 1.3rem;
+            color: var(--royal-blue);
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .product-description {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 1.4rem;
+            color: var(--primary-orange);
+            font-weight: 700;
+        }
+        
+        .original-price {
+            color: var(--dark-gray);
+            text-decoration: line-through;
+            font-size: 1rem;
+        }
+        
+        .discount {
+            background: var(--forest-green);
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .stars {
+            color: var(--golden-yellow);
+            font-size: 1.1rem;
+        }
+        
+        .rating-text {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        .size-options {
+            margin-bottom: 20px;
+        }
+        
+        .size-options label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--royal-blue);
+        }
+        
+        .size-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .size-btn {
+            padding: 8px 15px;
+            border: 2px solid var(--light-gray);
+            background: var(--white);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .size-btn.selected,
+        .size-btn:hover {
+            border-color: var(--primary-orange);
+            background: var(--primary-orange);
+            color: var(--white);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .add-to-cart {
+            flex: 1;
+            padding: 12px;
+            font-weight: 600;
+        }
+        
+        .wishlist-btn {
+            padding: 12px 15px;
+            background: var(--light-gray);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--royal-blue);
+        }
+        
+        .wishlist-btn:hover {
+            background: var(--deep-red);
+            color: var(--white);
+        }
+        
+        @media (max-width: 768px) {
+            .filter-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                justify-content: space-between;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Silya.in</h1>
+                <p>मराठी बाल फॅशन</p>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="shirts.html" class="active">Shirts</a></li>
+                    <li><a href="pants.html">Pants</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="cart-btn"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></button>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Page -->
+    <section class="product-page">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Traditional Marathi Shirts</h1>
+                <p>Discover our beautiful collection of kids' Marathi style shirts and kurtas. Each piece celebrates our rich cultural heritage while ensuring comfort for your little ones.</p>
+            </div>
+
+            <!-- Product Filters -->
+            <div class="product-filters">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label>Category:</label>
+                        <div class="filter-tags">
+                            <button class="filter-tag active" onclick="filterProducts('all')">All Shirts</button>
+                            <button class="filter-tag" onclick="filterProducts('kurta')">Kurtas</button>
+                            <button class="filter-tag" onclick="filterProducts('formal')">Formal Shirts</button>
+                            <button class="filter-tag" onclick="filterProducts('festival')">Festival Wear</button>
+                            <button class="filter-tag" onclick="filterProducts('casual')">Casual</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Sort by:</label>
+                        <select onchange="sortProducts(this.value)">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name">Name A-Z</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                    </div>
+                    
+                    <div class="products-count">
+                        Showing <span id="product-count">12</span> products
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="kurta">
+                    <div class="product-image">
+                        <img src="images/twokids.jpeg" alt="Traditional Marathi Kurta for Kids">
+                        <div class="product-badges">
+                            <span class="product-badge badge-new">New</span>
+                            <span class="product-badge badge-bestseller">Best Seller</span>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="quick-action" title="Quick View"><i class="fas fa-eye"></i></button>
+                            <button class="quick-action" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Traditional Kurta</div>
+                        <h3 class="product-name">Royal Marathi Kurta Set</h3>
+                        <p class="product-description">Beautiful traditional kurta with authentic Marathi embroidery and comfortable cotton fabric.</p>
+                        <div class="product-price">
+                            <span class="current-price">₹599</span>
+                            <span class="original-price">₹799</span>
+                            <span class="discount">25% OFF</span>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.8 (24 reviews)</span>
+                        </div>
+                        <div class="size-options">
+                            <label>Size:</label>
+                            <div class="size-buttons">
+                                <button class="size-btn">2-3Y</button>
+                                <button class="size-btn selected">4-5Y</button>
+                                <button class="size-btn">6-7Y</button>
+                                <button class="size-btn">8-9Y</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-category="festival">
+                    <div class="product-image">
+                        <img src="images/solo.jpeg" alt="Festival Wear Kurta">
+                        <div class="product-badges">
+                            <span class="product-badge badge-sale">Sale</span>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="quick-action" title="Quick View"><i class="fas fa-eye"></i></button>
+                            <button class="quick-action" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Festival Wear</div>
+                        <h3 class="product-name">Golden Thread Kurta</h3>
+                        <p class="product-description">Festive kurta with golden thread work, perfect for Ganesh Chaturthi and other celebrations.</p>
+                        <div class="product-price">
+                            <span class="current-price">₹899</span>
+                            <span class="original-price">₹1199</span>
+                            <span class="discount">25% OFF</span>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">4.5 (18 reviews)</span>
+                        </div>
+                        <div class="size-options">
+                            <label>Size:</label>
+                            <div class="size-buttons">
+                                <button class="size-btn">2-3Y</button>
+                                <button class="size-btn">4-5Y</button>
+                                <button class="size-btn selected">6-7Y</button>
+                                <button class="size-btn">8-9Y</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-category="casual">
+                    <div class="product-image">
+                        <img src="images/solo1.jpeg" alt="Casual Marathi Shirt">
+                        <div class="quick-actions">
+                            <button class="quick-action" title="Quick View"><i class="fas fa-eye"></i></button>
+                            <button class="quick-action" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Casual Wear</div>
+                        <h3 class="product-name">Daily Comfort Kurta</h3>
+                        <p class="product-description">Lightweight cotton kurta for everyday wear with traditional Marathi prints.</p>
+                        <div class="product-price">
+                            <span class="current-price">₹399</span>
+                            <span class="original-price">₹499</span>
+                            <span class="discount">20% OFF</span>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.7 (31 reviews)</span>
+                        </div>
+                        <div class="size-options">
+                            <label>Size:</label>
+                            <div class="size-buttons">
+                                <button class="size-btn">2-3Y</button>
+                                <button class="size-btn">4-5Y</button>
+                                <button class="size-btn">6-7Y</button>
+                                <button class="size-btn selected">8-9Y</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-category="formal">
+                    <div class="product-image">
+                        <img src="images/twokids.jpeg" alt="Formal Marathi Shirt">
+                        <div class="product-badges">
+                            <span class="product-badge badge-new">New</span>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="quick-action" title="Quick View"><i class="fas fa-eye"></i></button>
+                            <button class="quick-action" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Formal Wear</div>
+                        <h3 class="product-name">Silk Touch Formal Kurta</h3>
+                        <p class="product-description">Premium silk-blend kurta for special occasions and formal events.</p>
+                        <div class="product-price">
+                            <span class="current-price">₹1299</span>
+                            <span class="original-price">₹1599</span>
+                            <span class="discount">19% OFF</span>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.9 (12 reviews)</span>
+                        </div>
+                        <div class="size-options">
+                            <label>Size:</label>
+                            <div class="size-buttons">
+                                <button class="size-btn">2-3Y</button>
+                                <button class="size-btn selected">4-5Y</button>
+                                <button class="size-btn">6-7Y</button>
+                                <button class="size-btn">8-9Y</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart">Add to Cart</button>
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional products would go here... -->
+            </div>
+
+            <!-- Load More Button -->
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-secondary" onclick="loadMoreProducts()">Load More Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Silya.in</h3>
+                    <p>Premium kids' Marathi style clothing with traditional designs and modern comfort.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shirts.html">Shirts</a></li>
+                        <li><a href="pants.html">Pants</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-envelope"></i> info@silya.in</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Silya.in. All rights reserved. | Designed with ❤️ for Marathi culture</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Additional functionality for product page
+        function loadMoreProducts() {
+            alert('This would load more products from the database');
+        }
+        
+        // Size selection
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Filter tags
+        document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

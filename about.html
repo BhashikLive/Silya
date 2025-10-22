@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Silya.in - Marathi Kids Fashion</title>
+    <meta name="description" content="Learn about Silya.in's mission to preserve Marathi culture through beautiful kids' clothing. Our story, values, and commitment to quality.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-page {
+            padding: 120px 0 80px;
+        }
+        
+        .page-header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--cream), var(--light-gray));
+            margin-bottom: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: var(--royal-blue);
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .about-section {
+            margin-bottom: 80px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .about-content.reverse {
+            direction: rtl;
+        }
+        
+        .about-content.reverse > * {
+            direction: ltr;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--royal-blue);
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .about-text ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .about-text ul li {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .about-text ul li::before {
+            content: '✓';
+            color: var(--primary-orange);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px var(--shadow);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--deep-orange));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: var(--royal-blue);
+            margin-bottom: 15px;
+        }
+        
+        .value-card p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .team-section {
+            background: var(--light-gray);
+            padding: 80px 0;
+            margin-top: 80px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .team-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .team-info h4 {
+            font-size: 1.3rem;
+            color: var(--royal-blue);
+            margin-bottom: 8px;
+        }
+        
+        .team-role {
+            color: var(--primary-orange);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .team-bio {
+            color: var(--dark-gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--light-gray);
+            color: var(--royal-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--royal-blue), var(--primary-orange));
+            color: var(--white);
+            margin-top: 80px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .btn-white {
+            background: var(--white);
+            color: var(--royal-blue);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-white:hover {
+            background: transparent;
+            color: var(--white);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--royal-blue);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-text h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-left">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en" id="lang-en">EN</button>
+                    <button class="lang-btn" data-lang="mr" id="lang-mr">मर</button>
+                </div>
+                <div class="logo">
+                    <a href="index.html" class="logo-link" aria-label="Go to homepage">
+                        <h1 data-en="Silya.in" data-mr="सिल्या.इन">Silya.in</h1>
+                        <p data-en="Kids' Marathi Fashion" data-mr="मुलांसाठी मराठी फॅशन">Kids' Marathi Fashion</p>
+                    </a>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" data-en="Home" data-mr="मुख्यपृष्ठ">Home</a></li>
+                    <li><a href="index.html#products" data-en="Our Kids Dress Set" data-mr="मुलांसाठी आमचा पोशाख सेट">Our Kids Dress Set</a></li>
+                    <li><a href="about.html" class="active" data-en="About" data-mr="आमच्याबद्दल">About</a></li>
+                    <li><a href="contact.html" data-en="Contact" data-mr="संपर्क">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <button class="cart-btn"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></button>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-en="About Silya.in" data-mr="Silya.in बद्दल">About Silya.in</h1>
+            <p data-en="Preserving Marathi culture through beautiful, authentic kids' clothing that celebrates our rich heritage while ensuring modern comfort and style." data-mr="सुंदर व अस्सल मुलांच्या पोशाखांद्वारे मराठी संस्कृतीचा वारसा जपणे — समृद्ध परंपरेचा सन्मान करताना आधुनिक आराम आणि शैलीदेखील राखणे.">Preserving Marathi culture through beautiful, authentic kids' clothing that celebrates our rich heritage while ensuring modern comfort and style.</p>
+        </div>
+    </section>
+
+    <!-- About Page Content -->
+    <section class="about-page">
+        <div class="container">
+            
+            <!-- Our Story Section -->
+            <div class="about-section">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 data-en="Our Story" data-mr="आमची कथा">Our Story</h2>
+                        <p data-en="Silya.in was born from a deep love for Marathi culture and a desire to share our beautiful traditions with the next generation. Founded by parents who wanted their children to stay connected to their roots, we believe that clothing is more than just fabric – it's a way to tell stories, preserve heritage, and instill pride in our rich cultural identity." data-mr="Silya.in ची सुरुवात मराठी संस्कृतीवरील प्रेमातून आणि पुढील पिढीशी आपली सुंदर परंपरा जोडण्याच्या इच्छेतून झाली. आपल्या मुलांनी मुळांशी नाळ जुळलेली राहावी अशी इच्छा असलेल्या पालकांनी हा उपक्रम सुरू केला. आमच्या मते कपडे म्हणजे फक्त कापड नाही — ते परंपरेच्या गोष्टी सांगण्याचे, वारसा जपण्याचे आणि सांस्कृतिक अभिमान रुजवण्याचे माध्यम आहे.">Silya.in was born from a deep love for Marathi culture and a desire to share our beautiful traditions with the next generation.</p>
+                        
+                        <p data-en="Our journey began when we noticed how difficult it was to find authentic Marathi style clothing for children that was both traditional and comfortable for modern kids. We decided to bridge this gap by creating a brand that honors our ancestors while meeting the needs of today's families." data-mr="आमचा प्रवास तेव्हा सुरू झाला जेव्हा मुलांसाठी अस्सल मराठी शैलीचे, पारंपरिक पण आधुनिक मुलांना आरामदायक असे कपडे मिळणे किती अवघड आहे हे आम्ही पाहिले. त्यामुळे पूर्वजांचा सन्मान राखत आजच्या कुटुंबांच्या गरजा पूर्ण करणारा ब्रँड निर्माण करण्याचा आम्ही निर्णय घेतला.">Our journey began when we noticed how difficult it was to find authentic Marathi style clothing for children that was both traditional and comfortable for modern kids.</p>
+                        
+                        <p data-en="Every piece in our collection is carefully designed to reflect the authentic spirit of Maharashtra – from the vibrant colors that represent our festivals to the traditional patterns that have been passed down through generations." data-mr="आमच्या संग्रहातील प्रत्येक वस्तू महाराष्ट्राच्या अस्सल आत्म्याचे प्रतिबिंब दाखवते — सणांच्या रंगीबेरंगी उत्साहापासून ते पिढ्यान् पिढ्या चालत आलेल्या पारंपरिक नमुन्यांपर्यंत.">Every piece in our collection is carefully designed to reflect the authentic spirit of Maharashtra.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/twokids.jpeg" alt="Traditional Marathi Family">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Mission Section -->
+            <div class="about-section">
+                <div class="about-content reverse">
+                    <div class="about-text">
+                        <h2 data-en="Our Mission" data-mr="आमचे उद्दिष्ट">Our Mission</h2>
+                        <p data-en="At Silya.in, our mission is to make traditional Marathi clothing accessible, comfortable, and appealing to modern families while maintaining the authentic essence of our culture." data-mr="Silya.in मध्ये आमचे उद्दिष्ट पारंपरिक मराठी पोशाख आधुनिक कुटुंबांसाठी सहज उपलब्ध, आरामदायक आणि आकर्षक करणे — व त्याचवेळी आपल्या संस्कृतीची अस्सल सत्त्वता टिकवणे आहे.">At Silya.in, our mission is to make traditional Marathi clothing accessible, comfortable, and appealing to modern families while maintaining the authentic essence of our culture.</p>
+                        
+                        <p data-en="We are committed to:" data-mr="आमची बांधिलकी:">We are committed to:</p>
+                        <ul>
+                            <li data-en="Preserving and promoting Marathi cultural heritage through fashion" data-mr="फॅशनच्या माध्यमातून मराठी सांस्कृतिक वारशाचे जतन व संवर्धन करणे">Preserving and promoting Marathi cultural heritage through fashion</li>
+                            <li data-en="Creating high-quality, comfortable clothing for active kids" data-mr="चंचल मुलांसाठी उच्च-गुणवत्तेचे आणि आरामदायक कपडे तयार करणे">Creating high-quality, comfortable clothing for active kids</li>
+                            <li data-en="Supporting local artisans and traditional craftsmanship" data-mr="स्थानिक कारागीर आणि पारंपरिक कौशल्यांना समर्थन देणे">Supporting local artisans and traditional craftsmanship</li>
+                            <li data-en="Using sustainable and child-safe materials" data-mr="शाश्वत व मुलांसाठी सुरक्षित सामग्रींचा वापर करणे">Using sustainable and child-safe materials</li>
+                            <li data-en="Making cultural clothing affordable for all families" data-mr="सांस्कृतिक पोशाख सर्व कुटुंबांना परवडेल असे बनवणे">Making cultural clothing affordable for all families</li>
+                            <li data-en="Building pride in Marathi identity among young generations" data-mr="तरुण पिढीत मराठी ओळखीचा अभिमान निर्माण करणे">Building pride in Marathi identity among young generations</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/solo.JPG" alt="Kids in Traditional Wear">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Values -->
+            <div class="about-section">
+                <div class="section-header">
+                    <h2 style="text-align: center; font-size: 2.5rem; color: var(--royal-blue); margin-bottom: 20px;" data-en="Our Values" data-mr="आमची मूल्ये">Our Values</h2>
+                    <p style="text-align: center; font-size: 1.2rem; color: var(--dark-gray); max-width: 600px; margin: 0 auto;" data-en="The principles that guide everything we do at Silya.in" data-mr="Silya.in मध्ये आम्ही जे काही करतो त्यामागची मार्गदर्शक तत्त्वे">The principles that guide everything we do at Silya.in</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 data-en="Cultural Pride" data-mr="संस्कृतीचा अभिमान">Cultural Pride</h3>
+                        <p data-en="We celebrate and honor Marathi culture in every design, helping children connect with their heritage and develop cultural pride from an early age." data-mr="प्रत्येक डिझाइनमध्ये आम्ही मराठी संस्कृतीचा सन्मान करतो, जेणेकरून मुलांना त्यांच्या वारशाशी नाते जोडता येईल आणि लहानपणापासून सांस्कृतिक अभिमान विकसित होईल.">We celebrate and honor Marathi culture in every design, helping children connect with their heritage and develop cultural pride from an early age.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 data-en="Quality First" data-mr="गुणवत्तेला प्राधान्य">Quality First</h3>
+                        <p data-en="We use only the finest materials and craftsmanship to ensure our clothing is comfortable, durable, and safe for children of all ages." data-mr="आमचे कपडे सर्व वयोगटातील मुलांसाठी आरामदायक, टिकाऊ आणि सुरक्षित राहावेत यासाठी आम्ही उत्कृष्ट दर्जाच्या सामग्री व कारागिरीचाच वापर करतो.">We use only the finest materials and craftsmanship to ensure our clothing is comfortable, durable, and safe for children of all ages.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 data-en="Sustainability" data-mr="शाश्वतता">Sustainability</h3>
+                        <p data-en="We're committed to sustainable practices, using eco-friendly materials and supporting local artisans to create a positive impact on our community." data-mr="पर्यावरणपूरक सामग्रींचा वापर आणि स्थानिक कारागिरांना पाठबळ देऊन आमच्या समुदायावर सकारात्मक परिणाम घडवणाऱ्या शाश्वत पद्धतींची आम्ही कटिबद्धता बाळगतो.">We're committed to sustainable practices, using eco-friendly materials and supporting local artisans to create a positive impact on our community.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 data-en="Family Values" data-mr="कौटुंबिक मूल्ये">Family Values</h3>
+                        <p data-en="We understand the importance of family traditions and create clothing that brings families together in celebration of their shared heritage." data-mr="कौटुंबिक परंपरांचे महत्त्व आम्हाला माहित आहे आणि सामायिक वारशाचा उत्सव एकत्र साजरा करता यावा म्हणून आम्ही कुटुंबांना जोडणारे पोशाख तयार करतो.">We understand the importance of family traditions and create clothing that brings families together in celebration of their shared heritage.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 data-en="Authentic Design" data-mr="अस्सल डिझाइन">Authentic Design</h3>
+                        <p data-en="Every pattern, color, and detail is researched and crafted to reflect genuine Marathi artistic traditions and cultural significance." data-mr="प्रत्येक नमुना, रंग आणि तपशील मराठी कलात्मक परंपरा व सांस्कृतिक अर्थपूर्णता दर्शवेल याची आम्ही बारकाईने काळजी घेतो.">Every pattern, color, and detail is researched and crafted to reflect genuine Marathi artistic traditions and cultural significance.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h3 data-en="Customer Joy" data-mr="ग्राहक आनंद">Customer Joy</h3>
+                        <p data-en="We measure our success by the smiles on children's faces and the satisfaction of parents who trust us with their precious little ones." data-mr="मुलांच्या चेहऱ्यावरील हसू आणि आमच्यावर विश्वास ठेवणाऱ्या पालकांचे समाधान — यालाच आम्ही आमचे यश मानतो.">We measure our success by the smiles on children's faces and the satisfaction of parents who trust us with their precious little ones.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="text-align: center; font-size: 2.5rem; color: var(--royal-blue); margin-bottom: 20px;" data-en="Meet Our Team" data-mr="आमची टीम">Meet Our Team</h2>
+                <p style="text-align: center; font-size: 1.2rem; color: var(--dark-gray); max-width: 600px; margin: 0 auto;" data-en="The passionate people behind Silya.in who work tirelessly to bring you the best in Marathi kids' fashion" data-mr="Silya.in मागे काम करणारी ती जिद्दी लोकं — मराठी मुलांच्या फॅशनमध्ये तुम्हाला सर्वोत्तम देण्यासाठी अहोरात्र प्रयत्नशील.">The passionate people behind Silya.in who work tirelessly to bring you the best in Marathi kids' fashion</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="images/solo1.JPG" alt="Founder">
+                    </div>
+                    <div class="team-info">
+                        <h4>Priya Sharma</h4>
+                        <div class="team-role" data-en="Founder & CEO" data-mr="संस्थापक आणि मुख्य कार्यकारी अधिकारी">Founder & CEO</div>
+                        <p class="team-bio" data-en="A mother of two and passionate advocate for cultural preservation, Priya founded Silya.in to share her love for Marathi traditions with families worldwide." data-mr="दोन मुलांची आई आणि सांस्कृतिक जतनाची आग्रही समर्थक म्हणून प्रिया यांनी मराठी परंपरांवरील आपले प्रेम जगभरातील कुटुंबांपर्यंत पोहोचवण्यासाठी Silya.in ची स्थापना केली.">A mother of two and passionate advocate for cultural preservation, Priya founded Silya.in to share her love for Marathi traditions with families worldwide.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="images/solo.JPG" alt="Designer">
+                    </div>
+                    <div class="team-info">
+                        <h4>Aarti Kulkarni</h4>
+                        <div class="team-role" data-en="Head Designer" data-mr="मुख्य डिझायनर">Head Designer</div>
+                        <p class="team-bio" data-en="With 15 years of experience in traditional fashion, Aarti brings authentic Marathi designs to life while ensuring modern comfort and style." data-mr="पारंपरिक फॅशनमध्ये १५ वर्षांच्या अनुभवासह, आरती अस्सल मराठी डिझाइन्सना आधुनिक आराम व शैलीसह जिवंत रूप देतात.">With 15 years of experience in traditional fashion, Aarti brings authentic Marathi designs to life while ensuring modern comfort and style.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="images/twokids.jpeg" alt="Master Craftsman">
+                    </div>
+                    <div class="team-info">
+                        <h4>Rajesh Patil</h4>
+                        <div class="team-role" data-en="Master Craftsman" data-mr="मुख्य कारागीर">Master Craftsman</div>
+                        <p class="team-bio" data-en="A third-generation textile artisan, Rajesh oversees our production process and ensures that every piece meets our high standards of quality and authenticity." data-mr="तृतीय पिढीतील वस्त्रोद्योग कारागीर म्हणून राजेश आमची उत्पादन प्रक्रिया सांभाळतात आणि प्रत्येक वस्तू गुणवत्ता व अस्सलतेच्या उच्च मानकांना सामावते याची खात्री करतात.">A third-generation textile artisan, Rajesh oversees our production process and ensures that every piece meets our high standards of quality and authenticity.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 data-en="Join Our Cultural Journey" data-mr="आमच्या सांस्कृतिक प्रवासात सामील व्हा">Join Our Cultural Journey</h2>
+            <p data-en="Become part of the Silya.in family and help us preserve Marathi culture for future generations" data-mr="Silya.in परिवाराचा भाग बना आणि भविष्यातील पिढ्यांसाठी मराठी संस्कृती जपण्यात आम्हाला साथ द्या">Become part of the Silya.in family and help us preserve Marathi culture for future generations</p>
+            <div class="cta-buttons">
+                <a href="index.html#products" class="btn btn-white" data-en="Shop Now" data-mr="आता खरेदी करा">Shop Now</a>
+                <a href="contact.html" class="btn btn-outline" data-en="Get in Touch" data-mr="संपर्क साधा">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-en="Silya.in" data-mr="सिल्या.इन">Silya.in</h3>
+                    <p data-en="Premium kids' Marathi style clothing with traditional designs and modern comfort." data-mr="पारंपरिक डिझाइन आणि आधुनिक आरामासह प्रीमियम मुलांचे मराठी शैलीचे कपडे.">Premium kids' Marathi style clothing with traditional designs and modern comfort.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Quick Links" data-mr="जलद दुवे">Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" data-en="Home" data-mr="मुख्यपृष्ठ">Home</a></li>
+                        <li><a href="about.html" data-en="About Us" data-mr="आमच्याबद्दल">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Customer Service" data-mr="ग्राहक सेवा">Customer Service</h4>
+                    <ul>
+                        <li><a href="contact.html" data-en="Contact Us" data-mr="आमच्याशी संपर्क साधा">Contact Us</a></li>
+                        <li><a href="#" data-en="Size Guide" data-mr="साईझ मार्गदर्शक">Size Guide</a></li>
+                        <li><a href="#" data-en="Shipping Info" data-mr="शिपिंग माहिती">Shipping Info</a></li>
+                        <li><a href="#" data-en="Returns" data-mr="रिटर्न्स">Returns</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Contact Info" data-mr="संपर्क माहिती">Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                        <p><i class="fas fa-envelope"></i> info@silya.in</p>
+                        <p><i class="fas fa-map-marker-alt"></i> <span data-en="Mumbai, Maharashtra" data-mr="तेलंगशी, महाराष्ट्र">Mumbai, Maharashtra</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p><span data-en="© 2024 Silya.in. All rights reserved. | Designed with ❤️ for Marathi culture" data-mr="© २०२४ सिल्या.इन. सर्व हक्क राखीव. | मराठी संस्कृतीसाठी ❤️ ने डिझाइन केले">© 2024 Silya.in. All rights reserved. | Designed with ❤️ for Marathi culture</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
