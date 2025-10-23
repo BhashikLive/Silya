@@ -90,24 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setupMotionEffects(); // Setup professional motion effects
 });
 
-// Test language toggle functionality
-function testLanguageToggle() {
-    console.log('Testing language toggle...');
-    const langButtons = document.querySelectorAll('.lang-btn');
-    const elementsWithLang = document.querySelectorAll('[data-en][data-mr]');
-    
-    console.log('Language buttons found:', langButtons.length);
-    console.log('Elements with language data:', elementsWithLang.length);
-    
-    // Test switching to Marathi
-    setTimeout(() => {
-        console.log('Testing Marathi switch...');
-        toggleLanguage('mr');
-    }, 2000);
-}
-
-// Call test function
-setTimeout(testLanguageToggle, 1000);
+// Removed auto-test language toggle used during development to prevent
+// unexpected switches after page load.
 
 // Initialize website
 function initializeWebsite() {

@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 3001;
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3001;
 const hostname = 'localhost';
 
 // MIME types for different file extensions
@@ -41,7 +41,12 @@ const server = http.createServer((req, res) => {
             if (error.code === 'ENOENT') {
                 // File not found - serve 404
                 fs.readFile('./404.html', (error, content) => {
-                    res.writeHead(404, { 'Content-Type': 'text/html' });
+                    res.writeHead(404, {
+                        'Content-Type': 'text/html',
+                        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    });
                     res.end(content || '<h1>404 - Page Not Found</h1><p>The requested page could not be found.</p>', 'utf-8');
                 });
             } else {
@@ -51,7 +56,13 @@ const server = http.createServer((req, res) => {
             }
         } else {
             // Success
-            res.writeHead(200, { 'Content-Type': mimeType });
+            // Disable caching during local development so changes show immediately
+            res.writeHead(200, {
+                'Content-Type': mimeType,
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0'
+            });
             res.end(content, 'utf-8');
         }
     });
@@ -87,4 +98,16 @@ process.on('SIGINT', () => {
     console.log('\n👋 Shutting down Silya.in server...');
     console.log('✅ Server stopped successfully!');
     process.exit(0);
+});
+
+// Handle server errors (e.g., port already in use)
+server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+        console.error(`\n⚠️  Port ${PORT} is already in use. Try one of these options:`);
+        console.error(`   - Close the existing process using the port`);
+        console.error(`   - Run this server on a different port, e.g.:`);
+        console.error(`     Windows PowerShell:  $env:PORT=3002; node server.js`);
+    } else {
+        console.error('Server error:', err);
+    }
 });
