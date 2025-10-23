@@ -1311,10 +1311,16 @@ body {
     }
     
     .hero-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        /* Stack elements and show hero text first on mobile */
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
         text-align: center;
     }
+    /* Reorder: Text above first image, then second image */
+    .hero-text { order: 1; }
+    .hero-side-image.left-image { order: 2; }
+    .hero-side-image.right-image { order: 3; }
     
     .hero-text h2 {
         font-size: 2.5rem;
